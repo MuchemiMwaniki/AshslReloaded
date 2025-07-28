@@ -1,0 +1,988 @@
+/* General Body and Container Styles */
+:root {
+    /* Black and Gold Theme - Light Mode */
+    --primary-color: #DAA520; /* Rich Gold - for accents, active states, important text */
+    --secondary-color: #e8e8e8; /* Slightly darker light gray - for subtle backgrounds */
+    --background-color: #ffffff; /* White background for main content */
+    --text-color-primary: #212121; /* Softer Black for main text */
+    --text-color-secondary: #444444; /* Dark gray for secondary text */
+    --header-footer-bg: #212121; /* Softer Black for header/footer background */
+    --border-color: #dddddd; /* Light gray for borders */
+    --button-primary-bg: #FFD700; /* Bright Gold for primary buttons */
+    --button-primary-hover: #DAA520; /* Rich Gold on hover */
+    --button-secondary-bg: #666666; /* Medium gray for secondary buttons */
+    --button-secondary-hover: #444444; /* Darker gray on hover */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly darker shadow for contrast */
+    --box-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.3);
+    --card-background: #ffffff; /* White cards */
+    --section-divider-color: #999999; /* Darker divider */
+    --accent-color: #FFD700; /* Consistent bright gold for various accents/links */
+}
+
+body.dark-mode {
+    /* Black and Gold Theme - Dark Mode */
+    --primary-color: #FFD700; /* Bright Gold - for accents, active states, important text */
+    --secondary-color: #3a3a3a; /* Slightly lighter dark gray */
+    --background-color: #1a1a1a; /* Deep Black background */
+    --text-color-primary: #f0f0f0; /* Near white text */
+    --text-color-secondary: #cccccc; /* Medium light gray text */
+    --header-footer-bg: #0d0d0d; /* Even darker for full contrast with content */
+    --border-color: #555555; /* Darker gray for borders */
+    --button-primary-bg: #FFD700; /* Bright Gold for primary buttons */
+    --button-primary-hover: #DAA520; /* Rich Gold on hover */
+    --button-secondary-bg: #888888; /* Medium gray for secondary buttons */
+    --button-secondary-hover: #666666; /* Darker gray on hover */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    --box-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.6);
+    --card-background: #2a2a2a; /* Darker cards */
+    --section-divider-color: #555555; /* Darker divider */
+    --accent-color: #FFD700; /* Consistent bright gold for various accents/links */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    color: var(--text-color-primary);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Ensure all generic links have a proper color for visibility */
+a {
+    color: var(--primary-color); /* Default gold for all links unless overridden */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color); /* Maintain gold hover for consistency */
+    text-decoration: underline;
+}
+
+
+/* Header Styles */
+header {
+    background-color: var(--header-footer-bg);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--box-shadow);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo-img {
+    height: 50px; /* Adjust as needed */
+    margin-right: 10px;
+}
+
+.site-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color); /* Gold text for site title */
+    white-space: nowrap; /* Prevent title from wrapping */
+}
+
+nav .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav .nav-links li {
+    margin-left: 20px;
+}
+
+nav .nav-links a {
+    text-decoration: none;
+    color: var(--text-color-primary); /* Default link color (black/off-white) */
+    font-weight: bold;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+nav .nav-links a:hover,
+nav .nav-links a.active {
+    color: var(--primary-color); /* Gold on hover/active */
+}
+
+.theme-toggle, .menu-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--text-color-primary); /* Use primary text color for icons */
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.theme-toggle:hover, .menu-toggle:hover {
+    color: var(--primary-color); /* Gold on hover */
+}
+
+.theme-toggle .light-icon { display: block; }
+.theme-toggle .dark-icon { display: none; }
+body.dark-mode .theme-toggle .light-icon { display: none; }
+body.dark-mode .theme-toggle .dark-icon { display: block; }
+
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+}
+
+/* Main Content Styles */
+main {
+    padding-bottom: 40px; /* Space before footer */
+}
+
+.section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.section-banner-image {
+    width: 100%;
+    max-height: 400px; /* Limit banner height */
+    object-fit: cover; /* Ensure image covers the area */
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+h1 {
+    font-size: 2.8em;
+    color: var(--primary-color); /* Gold for main headings */
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2.2em;
+    color: var(--text-color-primary);
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: var(--text-color-primary);
+    margin-bottom: 15px;
+}
+
+p.section-description {
+    font-size: 1.1em;
+    color: var(--text-color-secondary);
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hero Section Specifics */
+.hero-section {
+    position: relative;
+    text-align: center;
+    padding: 40px 0; /* Adjusted padding */
+}
+
+.hero-image {
+    width: 100%;
+    max-height: 500px; /* Ensure it's not excessively tall */
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-hover);
+}
+
+.hero-text {
+    margin-top: 30px;
+}
+
+.hero-text h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: var(--primary-color); /* Gold for hero heading */
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    color: var(--text-color-secondary);
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+}
+
+.hero-buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.primary-btn {
+    background-color: var(--button-primary-bg); /* Gold button */
+    color: var(--text-color-primary); /* Black text on gold */
+}
+
+.primary-btn:hover {
+    background-color: var(--button-primary-hover); /* Darker gold on hover */
+}
+
+.secondary-btn {
+    background-color: var(--button-secondary-bg); /* Dark gray button */
+    color: #ffffff; /* White text on dark gray */
+}
+
+.secondary-btn:hover {
+    background-color: var(--button-secondary-hover); /* Darker gray on hover */
+}
+
+/* Categories Grid */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.category-item {
+    background-color: var(--card-background);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    color: var(--primary-color); /* Gold text for categories */
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+/* Feature Explanation Section (used on index.html) */
+.feature-explanation {
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+.feature-explanation p {
+    color: var(--text-color-secondary);
+    margin-bottom: 20px;
+}
+
+.feature-explanation ul {
+    list-style: disc;
+    text-align: left;
+    padding-left: 25px;
+    color: var(--text-color-secondary);
+}
+
+.feature-explanation ul li {
+    margin-bottom: 10px;
+}
+
+.feature-explanation ul li strong {
+    color: var(--text-color-primary);
+}
+
+
+/* Section Divider */
+.section-divider {
+    height: 1px;
+    background-color: var(--section-divider-color);
+    margin: 60px auto;
+    max-width: 80%;
+}
+
+/* Brands Grid */
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.brands-grid img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain; /* Ensures logos fit without cropping */
+    padding: 15px;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+}
+
+.brands-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* --- Product Catalogue Grid (for catalogue.html) --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.product-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.product-image-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* 4:3 aspect ratio (height is 75% of width) */
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: var(--secondary-color); /* Placeholder background */
+}
+
+.product-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure image fits well */
+    transition: opacity 0.3s ease;
+}
+
+.product-image-container .hover-product-image {
+    opacity: 0;
+    position: absolute; /* Ensure it stacks */
+}
+
+.product-image-container:hover .main-product-image {
+    opacity: 0;
+}
+
+.product-image-container:hover .hover-product-image {
+    opacity: 1;
+}
+
+.product-card h3 {
+    font-size: 1.4em;
+    color: var(--text-color-primary);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 0.95em;
+    color: var(--text-color-secondary);
+    margin-bottom: 20px;
+    min-height: 40px; /* Ensure consistent height for descriptions */
+}
+
+.product-card .small-btn {
+    padding: 8px 18px;
+    font-size: 0.9em;
+}
+
+.stock-highlights {
+    text-align: left;
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    padding: 25px;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+.stock-highlights h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.stock-highlights p {
+    color: var(--text-color-secondary);
+    margin-bottom: 15px;
+}
+
+.stock-highlights ul {
+    list-style: disc;
+    padding-left: 25px;
+    color: var(--text-color-secondary);
+}
+
+.stock-highlights ul li {
+    margin-bottom: 8px;
+}
+
+.stock-highlights ul li strong {
+    color: var(--text-color-primary);
+}
+
+
+/* --- Contact Details Grid for contact.html --- */
+.contact-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.contact-item {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.contact-item .contact-icon {
+    font-size: 3em;
+    color: var(--primary-color); /* Gold for contact icons */
+    margin-bottom: 15px;
+}
+
+.contact-item h3 {
+    color: var(--text-color-primary);
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    color: var(--text-color-secondary);
+    line-height: 1.6;
+}
+
+.contact-item a {
+    color: var(--primary-color); /* Gold for contact links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.map-placeholder {
+    margin-top: 40px;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 50px 20px;
+    text-align: center;
+    color: var(--text-color-secondary);
+    font-style: italic;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Quick Contacts Section for index.html --- */
+.quick-contacts-section {
+    padding: 60px 0;
+}
+
+.quick-contacts-section .contact-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted min-width */
+    gap: 20px;
+    margin-top: 30px;
+    max-width: 1000px; /* Limit the max width of the grid */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-card-item {
+    background-color: var(--card-background); /* Using card-background for consistency */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Use flexbox for icon and text alignment */
+    flex-direction: column; /* Stack icon and text vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center;
+}
+
+.contact-card-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.contact-card-item .contact-card-icon {
+    font-size: 2.5em;
+    color: var(--primary-color); /* Gold for contact icons */
+    margin-bottom: 10px;
+}
+
+.contact-card-item p {
+    color: var(--text-color-secondary);
+    font-size: 0.95em;
+    margin: 0;
+    display: flex; /* Make content within p flexible */
+    flex-wrap: wrap; /* Allow text to wrap if too long */
+    justify-content: center; /* Center text if it wraps */
+    align-items: center;
+}
+
+.contact-card-item p strong {
+    color: var(--text-color-primary); /* Label text color */
+    margin-right: 5px;
+    white-space: nowrap; /* Prevent label from wrapping separately */
+}
+
+.contact-card-item a {
+    color: var(--accent-color); /* Use the new accent color (gold) for links */
+    text-decoration: none;
+    font-weight: bold; /* Make the contact number/email bold */
+    word-break: break-all; /* Allow long emails/numbers to break */
+}
+
+.contact-card-item a:hover {
+    text-decoration: underline;
+}
+
+/* Quote Form Container (Specific to get-quote.html) */
+.quote-form-container {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    max-width: 700px;
+    margin: 40px auto;
+    text-align: left;
+}
+
+.quote-form-container p {
+    color: var(--text-color-secondary);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.quote-form-container strong {
+    color: var(--text-color-primary);
+}
+
+.quote-form-container a {
+    color: var(--primary-color); /* Gold for links in quote form */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.quote-form-container a:hover {
+    text-decoration: underline;
+}
+
+
+/* Footer Layout CSS */
+footer {
+    background-color: var(--header-footer-bg); /* Black footer */
+    color: var(--text-color-secondary);
+    padding: 40px 0;
+    border-top: 1px solid var(--border-color);
+    text-align: center; /* Default center for small screens */
+}
+
+footer .footer-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+footer .footer-section {
+    flex: 1;
+    min-width: 280px; /* Adjusted minimum width */
+    padding: 10px;
+    text-align: left; /* Align text within sections */
+}
+
+footer .company-info {
+    flex: 2; /* Allow company info to take more space if needed */
+    text-align: left;
+}
+
+
+footer .contact-info h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--text-color-primary);
+}
+
+footer .contact-info p {
+    margin: 5px 0;
+    line-height: 1.5;
+    color: var(--text-color-secondary);
+}
+
+footer .contact-info i {
+    margin-right: 8px;
+    color: var(--primary-color); /* Gold icons in footer */
+}
+
+footer .contact-info a {
+    color: var(--text-color-secondary);
+    text-decoration: none;
+}
+
+footer .contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366; /* WhatsApp green - typically not part of brand but recognizable */
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Scroll To Top/Down Buttons */
+.scroll-buttons {
+    position: fixed;
+    bottom: 90px; /* Adjust if conflicts with whatsapp */
+    right: 20px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.scroll-btn {
+    background-color: var(--button-secondary-bg); /* Dark gray scroll buttons */
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll-btn:hover {
+    background-color: var(--button-secondary-hover); /* Darker gray on hover */
+    transform: translateY(-3px);
+}
+
+/* AI Chatbot Placeholder */
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Position on the left */
+    z-index: 1000;
+}
+
+.chatbot-toggle-btn {
+    background-color: var(--button-primary-bg); /* Gold button */
+    color: var(--text-color-primary); /* Black text on gold */
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    transition: background-color 0.3s ease;
+}
+
+.chatbot-toggle-btn:hover {
+    background-color: var(--button-primary-hover); /* Darker gold on hover */
+}
+
+.chatbot-toggle-btn i {
+    margin-right: 8px;
+}
+
+.chatbot-popup {
+    display: none; /* Hidden by default */
+    position: absolute;
+    bottom: 70px; /* Above the toggle button */
+    left: 0;
+    width: 300px;
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-hover);
+    overflow: hidden;
+    flex-direction: column; /* To make messages and input stack */
+}
+
+.chatbot-popup.open {
+    display: flex;
+}
+
+.chatbot-header {
+    background-color: var(--primary-color); /* Gold header for chatbot */
+    color: var(--text-color-primary); /* Black text on gold */
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.chatbot-header h3 {
+    margin: 0;
+    color: var(--text-color-primary); /* Black text on gold */
+    font-size: 1.1em;
+}
+
+.chatbot-header i {
+    margin-right: 5px;
+}
+
+.chatbot-close-btn {
+    background: none;
+    border: none;
+    color: var(--text-color-primary); /* Black close button on gold header */
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.chatbot-messages {
+    flex-grow: 1;
+    padding: 15px;
+    max-height: 250px; /* Scrollable message area */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    padding: 8px 12px;
+    border-radius: 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.bot-message {
+    background-color: var(--secondary-color);
+    color: var(--text-color-primary);
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+}
+
+.user-message {
+    background-color: var(--primary-color); /* Gold for user messages */
+    color: var(--text-color-primary); /* Black text on gold */
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+}
+
+.chatbot-input-area {
+    display: flex;
+    padding: 10px 15px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--header-footer-bg);
+}
+
+.chatbot-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    margin-right: 10px;
+    background-color: var(--background-color);
+    color: var(--text-color-primary);
+}
+
+.chatbot-send-btn {
+    background-color: var(--primary-color); /* Gold send button */
+    color: var(--text-color-primary); /* Black icon on gold */
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chatbot-send-btn:hover {
+    background-color: var(--button-primary-hover); /* Darker gold on hover */
+}
+
+.chatbot-disclaimer {
+    font-size: 0.75em;
+    color: var(--text-color-secondary);
+    text-align: center;
+    padding: 5px 10px 10px;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 1.2em;
+    }
+
+    nav .nav-links {
+        display: none; /* Hide main nav on mobile */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--header-footer-bg);
+        position: absolute;
+        top: 80px; /* Adjust based on header height */
+        left: 0;
+        box-shadow: var(--box-shadow);
+        padding: 10px 0;
+    }
+
+    nav .nav-links.active {
+        display: flex; /* Show when active */
+    }
+
+    nav .nav-links li {
+        margin: 0;
+    }
+
+    nav .nav-links a {
+        display: block;
+        padding: 10px 20px;
+        text-align: left;
+    }
+
+    .menu-toggle {
+        display: block; /* Show menu toggle on mobile */
+    }
+
+    .hero-text h1 {
+        font-size: 2em;
+    }
+
+    .hero-text p {
+        font-size: 1em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        margin: 5px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .section {
+        padding: 40px 0;
+    }
+
+    .categories-grid,
+    .brands-grid,
+    .product-grid,
+    .contact-details-grid,
+    .contact-cards-grid {
+        grid-template-columns: 1fr; /* Stack items vertically on smaller screens */
+        gap: 20px;
+    }
+
+    footer .footer-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    footer .footer-section {
+        min-width: unset;
+        width: 100%;
+        text-align: center;
+    }
+
+    .chatbot-popup {
+        width: calc(100% - 40px); /* Adjust width for mobile */
+        left: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-logo-img {
+        height: 40px;
+    }
+    .site-title {
+        font-size: 1.1em;
+    }
+    .hero-text h1 {
+        font-size: 1.8em;
+    }
+}
